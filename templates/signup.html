@@ -68,6 +68,24 @@
         </tr>
         <tr>
           <td colspan="2">
+            <p class="login-here">Have an account? <a href="{{ url_for('login') }}" >Login here!</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="error-message">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  {% if category == 'danger' %}
+                    <p class"error-text">{{ message }}</p>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
             <div class="submit-btn-container"><button type="submit"  id="signup-submit" class="submit-btn">Signup</button></div></td>
         </tr>
       </table>

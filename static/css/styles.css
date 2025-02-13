@@ -97,11 +97,30 @@ header{
     text-align: center;
     
 }
-.register-here{
+.register-here, .login-here{
     color: #1565C0;
     text-decoration: none;
     font-size: 12px;
+    text-align: left;
 }
+
+.register-here a, .login-here a{
+    color: #1565C0;
+    text-decoration: none;
+    font-size: 14px;
+}
+.error-message {
+    text-align: center;
+    padding: 5px;
+    color: red;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .submit-btn{
     padding: 10px 20px;
     background-color: #1565C0;

@@ -1,6 +1,5 @@
 
-from flask import Flask, render_template, request, redirect, url_for, session
-# import flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -87,6 +86,12 @@ def signup():
         email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
+        
+        # Validate input fields
+        if not full_name or not email or not password:
+            flash('All fields are required.', 'danger')
+            return redirect(url_for('signup'))
+        
         # check if the password is same as confirm password field in teh signup form
         if password != confirm_password:
             return redirect(url_for('signup'))
@@ -119,6 +124,12 @@ def login():
         email = request.form['email']
         password = request.form['password']     
         print(f"Email: , {email} | Password: {password} ")
+        
+        # Validate input fields
+        if not email or not password:
+            flash('Both email and password are required.', 'danger')
+            return redirect(url_for('login'))
+        
         # connecting to the database and retrieving user details
         conn = sqlite3.connect('revision_app.db')
         c = conn.cursor()
@@ -131,13 +142,15 @@ def login():
         if user and check_password_hash(user[3], password):
             session['user_id'] = user[0]
             session['full_name'] = user[1]
-            print("Session user:", session['user_id'], session['full_name'])
+            session['first_name'] = user[1].split()[0].capitalize()
+            print("Session user:", session['user_id'], session['full_name'], session['first_name'])
+            # flash(f'Welcome, {session["first_name"]}!', 'success')
             # flash('Login Successful!!!', 'success')
             return redirect(url_for('index'))
     
         else:
             print("Invalid Login creds")
-            # flash('Invalid email or password. Please try again.', 'danger')
+            flash('Invalid email or password. Please try again.', 'danger')
             return redirect(url_for('login'))
     return render_template('login.html')
 
@@ -146,6 +159,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)
+    session.pop('first_name', None)
     # flash('You have been logged out.', 'success')
     return redirect(url_for('login'))
 

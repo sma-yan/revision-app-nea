@@ -44,7 +44,20 @@
           </tr>
           <tr>
             <td colspan="2">
-              <a href="{{ url_for('signup') }}" class="register-here"><p>Register here!</p></a>
+              <p class="register-here">Don't have an account? <a href="{{ url_for('signup') }}" >Register here!</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="error-message">
+              {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    {% if category == 'danger' %}
+                      <p class"error-text">{{ message }}</p>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
             </td>
           </tr>
           <tr>

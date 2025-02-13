@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% block title %}Revision App | ToDo App{% endblock %}
+{% block content %}
+
+<main class="todo-app-container">
+  <section class="todo-header">
+    <h1>To-Do List</h1>
+    <p>Manage your tasks efficiently and track your progress.</p>
+  </section>
+
+  <!-- Add Task Form -->
+  <section class="todo-form-container">
+    <form action="{{ url_for('add_task') }}" method="POST" class="todo-form">
+      <div class="form-group">
+        <label for="title">Task Title <span>*</span>:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="form-control"
+          placeholder="Enter task title"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          class="form-control"
+          placeholder="Task details (optional)"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="due_date">Due Date:</label>
+        <input type="date" id="due_date" name="due_date" class="form-control" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Display Pending Tasks -->
+  <section class="task-section">
+    <h2>Pending Tasks</h2>
+    <ul class="task-list">
+      {% for task in tasks %} {% if task[5] == 'pending' %}
+      <li class="task-item">
+        <div class="task-details">
+          <h4>{{ task[2] }}</h4>
+          <p>Due: {{ task[4] }}</p>
+        </div>
+        <div class="task-actions">
+          <!-- Complete Button -->
+          <a
+            href="{{ url_for('complete_task', task_id=task[0]) }}"
+            class="btn btn-success"
+            title="Mark as Complete"
+          >
+            <i class="far fa-check-circle"></i>
+          </a>
+          <!-- Delete Button -->
+          <a
+            href="{{ url_for('delete_task', task_id=task[0]) }}"
+            class="btn btn-danger"
+            title="Delete Task"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </div>
+      </li>
+      {% endif %} {% endfor %}
+    </ul>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Display Completed Tasks -->
+  <section class="task-section">
+    <h2>Completed Tasks</h2>
+    <ul class="task-list">
+      {% for task in tasks %} {% if task[5] == 'complete' %}
+      <li class="task-item task-completed">
+        <div class="task-details">
+          <h4>{{ task[2] }}</h4>
+          <p>Completed</p>
+        </div>
+        <div class="task-actions">
+          <!-- Delete Button -->
+          <a
+            href="{{ url_for('delete_task', task_id=task[0]) }}"
+            class="btn btn-danger"
+            title="Delete Task"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </div>
+      </li>
+      {% endif %} {% endfor %}
+    </ul>
+  </section>
+</main>
+
+{% endblock %}

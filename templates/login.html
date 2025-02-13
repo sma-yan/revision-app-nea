@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revision App | Login</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+
+  <body class="login-page">
+    <div class="form-container">
+      <form action="{{ url_for('login') }}" method="POST" class="login-form">
+        <table class="login">
+          <tr class="login-heading">
+            <td colspan="2"><h1>Login Here!</h1></td>
+          </tr>
+          <tr>
+            <td><label for="email">Email:</label></td>
+
+            <td>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="login-input"
+                placeholder="Enter your email..."
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="password">Password:</label></td>
+            <td>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="login-input"
+                placeholder="Enter your password.."
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <a href="{{ url_for('signup') }}" class="register-here"><p>Register here!</p></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="submit-btn-container">
+                <button type="submit" id="login-submit" class="submit-btn">
+                  Login
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

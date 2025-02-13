@@ -1,0 +1,84 @@
+{% extends 'base.html' %} 
+{% block title %}Revision App | Clocks{% endblock %} 
+{% block content %}
+
+<body>
+    <header>
+        <div id="study-tools-header">
+            <h1>Study Tools</h1>
+        </div>
+    </header>
+    <section id="digital-clock">
+        <div class="digital-clock-container">
+            <h2>Digital Clock</h2>
+            <div class="display-current-time"><h2></h2></div>
+        </div>
+    </section>
+
+    <section id="timers">
+        <div class="timers-header">
+            <h2>Timers Section</h2>
+        </div>
+        <div class="timers-containers">
+            <div class="countdown-container timer-container">
+                <h1>Countdown</h1>
+                <div class="countdown-timer timer">
+                    <h3 id="countdown-display">00:00:00</h3>
+                </div>
+                <input type="number" id="set-time-input" placeholder="Set time in minutes">
+                <div class="countdown-start-reset-container">
+                    <button id="countdown-start-stop-btn" class="timer-btn">Start</button>
+                    <button type="reset" id="countdown-reset-btn" class="timer-btn">Reset</button>
+                </div>
+            </div>
+
+
+            <div class="stopwatch-container timer-container">
+                <h1>Stopwatch</h1>
+                <div class="stopwatch-timer timer">
+                    <h3>00:00:00:000</h3>
+                </div>
+                <div class="stopwatch-start-reset-container">
+                    <button id="stopwatch-start-stop-btn" class="timer-btn">Start</button>
+                    <button type="reset" id="stopwatch-reset-btn" class="timer-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="pomodoro-container timer-container">
+                <h1>Pomodoro</h1>
+                <div class="pomodoro-timer timer">
+                    <h3>25:00</h3>
+                </div>
+                <div class="pomodoro-start-reset-container">
+                    <button id="pomodoro-start-btn" class="timer-btn">Start</button>
+                    <button type="reset" id="pomodoro-reset-btn" class="timer-btn">Reset</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="quick-time-section">
+        <div class="quick-timer-container">
+            <h2>Quick Timer</h2>
+            <div class="quick-timers">
+                <button id="qt1" class="quick-timer-btn">1 min</button>
+                <button id="qt2" class="quick-timer-btn">2 min</button>
+                <button id="qt5" class="quick-timer-btn">5 min</button>
+                <button id="qt10" class="quick-timer-btn">10 min</button>
+                <button id="qt15" class="quick-timer-btn">15 min</button>
+                <button id="qt30" class="quick-timer-btn">30 min</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer></footer>
+
+</body>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='/js/clocks.js') }}"></script>
+{% endblock  %}

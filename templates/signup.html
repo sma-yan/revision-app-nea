@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revision App | Signup</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+
+  <body class="signup-page">
+    <div class="form-container">
+    <form action="{{ url_for('signup') }}" method="POST" class="signup-form">
+      <table class="login">
+        <tr class="login-heading">
+          <td colspan="2"><h1>Signup Here!</h1></td>
+        </tr>
+        <tr>
+          <td><label for="full_name" id="fn">Name:</label></td>
+          <td>
+            <input
+              type="text"
+              name="full_name"
+              id="full_name"
+              class="signup-input"
+              placeholder="Enter your name..."
+            />
+          </td>
+        </tr>
+        
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="signup-input"
+              placeholder="Enter your email..."
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="signup-input"
+              placeholder="Enter your password..."
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="confirm_password">Confirm Password:</label></td>
+          <td>
+            <input
+              type="password"
+              name="confirm_password"
+              id="confirm_password"
+              class="signup-input"
+              placeholder="Enter your password..."
+            />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="submit-btn-container"><button type="submit"  id="signup-submit" class="submit-btn">Signup</button></div></td>
+        </tr>
+      </table>
+    </form>
+</div>
+  </body>
+</html>

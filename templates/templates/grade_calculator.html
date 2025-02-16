@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% block title %}Revision App | Grade Calculator{% endblock %} 
+{% block content %}
+    <header>
+        <div class="gc-header">
+            <h1>Grade Calculator</h1>
+            <h3>Enter your marks for each subject to calculate your grades.</h3>
+        </div>
+    </header>
+
+    <main id="gc-main">
+        <div id="subjects-container">
+            <div class="subject-entry">
+                <label>Subject: 
+                    <select class="subject-dropdown">
+                        <option value="">Select Subject</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Biology">Biology</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                        <option value="Geography">Geography</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Economics">Economics</option>
+                    </select>
+                </label>
+                <label>Marks Obtained: <input type="number" class="marks-obtained"></label>
+                <label>Total Marks: <input type="number" class="total-marks"></label>
+            </div>
+        </div>
+        
+        <div class="gc-btn-container">
+            <button id="add-subject">+ Add More Subjects</button>
+            <button id="calculate-grade">Calculate Overall Grade</button>
+        </div>
+
+        <div id="result-section">
+            <h2>Your Overall Percentage: <span id="final-percentage">--</span>%</h2>
+            <h2>Your Grade: <span id="final-grade">--</span></h2>
+            <h2>Highest Score: <span id="highest-score">--</span></h2>
+            <h2>Lowest Score: <span id="lowest-score">--</span></h2>
+        </div>
+        
+        <div class="reset-calculator">
+            <button id="reset-calculator-btn">Reset Calculator</button>
+        </div>
+    </main>
+
+    <footer></footer>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='/js/grade_calculator.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,505 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #E5F6FD;
+    color: white;
+    height: 100%;
+}
+
+header{
+    background-color: #1565C0;
+    margin: 20px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+
+}
+
+
+/* Navigation Bar */
+.nav-container{
+    background-color: #1565C0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.nav-container a{
+    color:  white;
+    text-decoration: none;
+}
+
+
+/* Dashboard */
+.dashboard-container{
+    width: 70%;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.cell{
+    background-color: #1565C0;
+    width: 250px;
+    height: 100px;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 50px;
+}
+.dashboard-row{
+    display: flex;
+   
+}
+
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.login-page, .signup-page{
+    background-image: url('../images/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: auto;
+    color: #1565C0;
+
+}
+.login{
+    padding: 30px;
+    margin: 5% 50%;
+    border-radius: 10px;
+    background-color: rgba(255,255,255, 0.9);
+    box-shadow: 0px 5px 15px grey;
+}
+
+.login tr td{
+    padding: 10px;
+}
+.login-input, .signup-input{
+    width: 300px;
+    padding: 10px;
+    border: 0px;
+    border-bottom: 1px solid grey;
+
+}
+.login-heading, .signup-page{
+    text-align: center;
+    
+}
+.register-here, .login-here{
+    color: #1565C0;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: left;
+}
+
+.register-here a, .login-here a{
+    color: #1565C0;
+    text-decoration: none;
+    font-size: 14px;
+}
+.error-message {
+    text-align: center;
+    padding: 5px;
+    color: red;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.submit-btn{
+    padding: 10px 20px;
+    background-color: #1565C0;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    
+}
+.submit-btn-container{
+    text-align: center;
+}
+/* Clocks Page */
+
+/* Stopwatch */
+
+
+.digital-clock-container{
+    background-color: #1565C0;
+    width: 20%;
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+
+}
+
+
+#timers{
+    margin: 5% auto;
+}
+.timers-header{
+    text-align: center;
+}
+.timers-header h2{
+    color: #0D47A1;
+}
+.timers-containers{
+    width: 70%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-around;
+}
+.timer-container{
+    background-color: #1565C0;
+    height: 250px;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.timer-btn{
+    text-align: center;
+    width: 60px;
+    height: 35px;
+    
+}
+
+/* Quick Timers */
+.quick-timer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    background-color: #1565C0;
+    border-radius: 10px;
+    padding: 20px 0;
+    margin: 20px auto;
+}
+
+.quick-timer-container h2{
+    margin-bottom: 20px;
+}
+.quick-timers{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.quick-timers button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+
+/* Grade Calculator */
+
+#gc-main{
+    width: 70%;
+    background-color: #1565C0;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    
+}
+
+.subject-entry{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.subject-entry input[type="number"]{
+    width: 50px;
+}
+
+#gc-main button{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #0D47A1;
+    font-weight: 700;
+}
+
+.gc-btn-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 40px auto;
+}
+
+.reset-calculator{
+    margin: 20px auto;    
+    text-align: center;
+}
+
+#reset-calculator-btn{
+    width: 70%;    
+}
+
+
+
+/* Planner/ToDo list */
+
+
+.todo-app-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.todo-header h1 {
+    color: #0D47A1;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.todo-header p {
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Form Section */
+.todo-form-container {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-form .form-group {
+    margin-bottom: 20px;
+}
+
+.todo-form .form-control {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.todo-form button {
+    background-color: #0D47A1;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todo-form button:hover {
+    background-color: #1565C0;
+}
+
+/* Task List Section */
+.task-section h2 {
+    color: #0D47A1;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-item h4 {
+    margin: 0;
+    font-size: 1.4em;
+    color: #333;
+}
+
+.task-item p {
+    margin: 5px 0 0;
+    font-size: 1em;
+    color: #777;
+}
+
+.task-actions .btn {
+    font-size: 1.2em;
+    padding: 8px 12px;
+    margin-left: 10px;
+    border-radius: 50%;
+    color: white;
+}
+
+.task-actions .btn-success {
+    background-color: #28a745;
+}
+
+.task-actions .btn-danger {
+    background-color: #dc3545;
+}
+
+.task-completed {
+    background-color: #e6ffe6;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 40px 0;
+}
+
+
+
+/* Notes */
+.notes-app-header h1 {
+    color: #0D47A1;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.notes-app-header-header p {
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.notes-app-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.note-form-container {
+    margin-top: 30px;
+}
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.note-form .form-group {
+    margin-bottom: 20px;
+}
+.form-group label, .notes-header h1, .notes-list h2{
+    color: black;
+}
+
+.notes-header h1 {
+    color: #0D47A1;
+    font-size: 2.5em;
+    text-align: center;
+}
+.note-form .form-control {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.note-form button {
+    background-color: #0D47A1;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notes-list {
+    margin-top: 40px;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #000;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.note-details {
+    flex-grow: 1;
+}
+
+.note-actions .btn {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.note-actions .btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+.note-actions .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.section-divider {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+
+
+
+/* 
+Login Page
+SignUp Page
+Home Page : Apps
+Clocks
+Notes
+Grade Calculator
+
+*/
+

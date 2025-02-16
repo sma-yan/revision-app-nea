@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block title %}Home | Revision App{% endblock %} 
+{% block content %}
+
+  <main>
+    <div class="dashboard-container">
+      <div class="dashboard-row">
+        <div id="dashboard-clocks">
+          <a href="{{ url_for('clocks') }}"><button class="cell"><h2>Clocks</h2></button></a>
+        </div>
+        <div id="dashboard-grade-calculator">
+          <a href="{{ url_for('grade_calculator') }}"><button class="cell"><h2>Grade Calculator</h2></button></a>
+        </div>
+      </div>
+      <div class="dashboard-row">
+        <div id="dashboard-ToDo">
+          <a href="{{ url_for('todo') }}"><button class="cell"><h2>To Do App</h2></button>
+        </div>
+        <div id="dashboard-Notes">
+          <a href="{{ url_for('notes') }}"><button class="cell"><h2>Notes</h2></button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

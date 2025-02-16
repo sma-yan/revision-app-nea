@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+import re
 
 app = Flask(__name__)
 app.secret_key = "smayan"
@@ -92,8 +93,16 @@ def signup():
             flash('All fields are required.', 'danger')
             return redirect(url_for('signup'))
         
+        # Server-side Password Validation
+        password_regex = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+
+        if not re.match(password_regex, password):
+            flash("Password must be at least 8 characters long, contain an uppercase letter, lowercase letter, a number, and a special character.", "danger")
+            return redirect(url_for('signup'))
+        
         # check if the password is same as confirm password field in teh signup form
         if password != confirm_password:
+            flash("Passwords do not match.", "danger")
             return redirect(url_for('signup'))
         
         # Creating a hashed password for security
@@ -108,11 +117,11 @@ def signup():
             conn.commit()
             conn.close()
 
-            # flash('Signup Successful! Please login.', 'success')
+            flash('Signup Successful! Please login.', 'success')
             return redirect(url_for('login'))
         
         except sqlite3.IntegrityError:
-            # flash('Email already exists. Please choose a different email.', 'danger')
+            flash('Email already exists. Please choose a different email.', 'danger')
             redirect(url_for('signup'))
     return render_template('signup.html')
 
@@ -130,6 +139,13 @@ def login():
             flash('Both email and password are required.', 'danger')
             return redirect(url_for('login'))
         
+        # Server-side Password Validation
+        password_regex = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+
+        if not re.match(password_regex, password):
+            flash("Invalid password format. Ensure it meets all security requirements.", "danger")
+            return redirect(url_for('login'))
+        
         # connecting to the database and retrieving user details
         conn = sqlite3.connect('revision_app.db')
         c = conn.cursor()
@@ -144,12 +160,11 @@ def login():
             session['full_name'] = user[1]
             session['first_name'] = user[1].split()[0].capitalize()
             print("Session user:", session['user_id'], session['full_name'], session['first_name'])
-            # flash(f'Welcome, {session["first_name"]}!', 'success')
+            flash(f'Welcome, {session["first_name"]}!', 'success')
             # flash('Login Successful!!!', 'success')
             return redirect(url_for('index'))
     
         else:
-            print("Invalid Login creds")
             flash('Invalid email or password. Please try again.', 'danger')
             return redirect(url_for('login'))
     return render_template('login.html')
